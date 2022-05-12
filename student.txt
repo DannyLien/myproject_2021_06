@@ -1,0 +1,6 @@
+Eric 90 70
+Hank 60 40
+Jane 95 85
+Jenny 91 31
+Danny 70 80
+Linda 90 90
