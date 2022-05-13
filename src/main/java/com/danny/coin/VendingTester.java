@@ -13,21 +13,35 @@ public class VendingTester {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String s = "-1";
         int n = -1;
         int total = 0;
-        while (n != 0) {
+        while (!s.equals("0")) {
             System.out.print("Please insert coin : ");
-            String s = scanner.next();
-            n = Integer.parseInt(s);
-            switch (n) {
-                case 1:
-                case 5:
-                case 10:
+            s = scanner.next();
+            switch (s) {
+                case "1":
+                case "5":
+                case "10":
+                    n = Integer.parseInt(s);
                     total = total + n;
                     break;
                 default:
-                    if (n != 0) {
+                    if (s.equals("0")) {
                         System.out.println("BEEP!");
+                    } else {
+                        for (int i = 0; i < drinks.size(); i++) {
+                            Drinks drink = drinks.get(i);
+                            if (drink.id.equals(s)) {
+                                int price = drink.price;
+                                if (total < price) {
+                                    System.out.println("BEEP!");
+                                } else {
+                                    System.out.println("You choice : " + drink.name);
+                                    total -= drink.price;
+                                }
+                            }
+                        }
                     }
                     break;
             }
